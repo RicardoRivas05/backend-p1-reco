@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Source} from './source.model';
+import {Quantity} from './quantity.model';
 
 @model()
 export class Datos extends Entity {
@@ -8,19 +10,6 @@ export class Datos extends Entity {
     generated: true,
   })
   id?: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  sourceId: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  quantityId: string;
-
   @property({
     type: 'date',
     required: true,
@@ -33,6 +22,11 @@ export class Datos extends Entity {
   })
   value?: number;
 
+  @belongsTo(() => Source)
+  sourceId: string;
+
+  @belongsTo(() => Quantity)
+  quantityId: string;
 
   constructor(data?: Partial<Datos>) {
     super(data);
