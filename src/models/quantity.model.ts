@@ -16,6 +16,12 @@ export class Quantity extends Entity {
   name: string;
 
   @property({
+    type: 'string',
+    required: true,
+  })
+  unit: string;
+
+  @property({
     type: 'boolean',
     default: true,
   })

@@ -22,7 +22,7 @@ export class Datos extends Entity {
   quantityId: string;
 
   @property({
-    type: 'string',
+    type: 'date',
     required: true,
   })
   dateTime: string;
