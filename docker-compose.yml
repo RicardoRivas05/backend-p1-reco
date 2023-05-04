@@ -10,8 +10,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-    #ports:
-    #  - ${DB_PORT}:${DB_PORT}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
   backend:
     depends_on:
       - db
