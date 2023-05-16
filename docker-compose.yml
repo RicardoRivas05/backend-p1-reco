@@ -12,33 +12,32 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
     ports:
       - ${DB_PORT}:${DB_PORT}
-  backend:
-    depends_on:
-      - db
-    container_name: Backend
-    build:
-      context: .
-      target: ${STAGE}
-      dockerfile: ./Dockerfile
-    volumes:
-        - .:/app/
-        - /app/node_modules
-        - /app/dist
-    ports:
-      - ${PORT}:${PORT}
-    environment:
-      PORT: ${PORT}
-      HOST: ${HOST}
-      DB_HOST: ${DB_HOST}
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-      DB_NAME: ${DB_NAME}
-      DB_PORT: ${DB_PORT}
-      DB_PROTOCOL: ${DB_PROTOCOL}
-      DB_URL: ${DB_URL}
-    restart: always
- 
+  # backend:
+  #   depends_on:
+  #     - db
+  #   container_name: Backend
+  #   build:
+  #     context: .
+  #     target: ${STAGE}
+  #     dockerfile: ./Dockerfile
+  #   volumes:
+  #       - .:/app/
+  #       - /app/node_modules
+  #       - /app/dist
+  #   ports:
+  #     - ${PORT}:${PORT}
+  #   environment:
+  #     PORT: ${PORT}
+  #     HOST: ${HOST}
+  #     DB_HOST: ${DB_HOST}
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+  #     DB_NAME: ${DB_NAME}
+  #     DB_PORT: ${DB_PORT}
+  #     DB_PROTOCOL: ${DB_PROTOCOL}
+  #     DB_URL: ${DB_URL}
+  #   restart: always
+
 volumes:
   mongo-db:
     external: true
-    

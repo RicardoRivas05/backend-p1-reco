@@ -4,12 +4,12 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'conn',
   connector: 'mongodb',
-  url: process.env.DB_URL,
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.MONGO_INITDB_ROOT_USERNAME,
-  password: process.env.MONGO_INITDB_ROOT_PASSWORD,
-  database: process.env.DB_NAME,
+  url: 'mongodb+srv://root:pKd9kOtpAY4VnWQ2@cluster0.btzrk0a.mongodb.net/RecoDB',
+  host: 'cluster0.btzrk0a.mongodb.net',
+  port: 27017,
+  user: 'root',
+  password: 'pKd9kOtpAY4VnWQ2',
+  database: 'RecoDB',
   useNewUrlParser: true
 };
 

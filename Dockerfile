@@ -1,14 +1,17 @@
 FROM node:16-slim as dependencies-dev
+#FROM node:20.1.0 as dependencies-dev
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
 FROM node:16-slim as dependencies-prod
+#FROM node:20.1.0 as dependencies-prod
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --prod
 
 FROM node:16-slim as dev
+#FROM node:20.1.0 as dev
 RUN npm i -g @loopback/cli
 WORKDIR /app
 COPY --from=dependencies-dev /app/node_modules/ ./node_modules/
@@ -22,6 +25,7 @@ CMD [ "node","-r","source-map-support/register","."]
 #CMD ["tail","-f","/dev/null"]
 
 FROM node:16-slim as prod
+#FROM node:20.1.0 as prod
 WORKDIR /app
 COPY --from=dependencies-prod /app/node_modules/ ./node_modules/
 COPY . .
